@@ -13,7 +13,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     $user =  user::login($email, $password);
 
-    var_dump($user);
+    //var_dump($user);
     if ($email == $user->email && $password == $user->GetPass()) {
         $_SESSION["user"] = serialize($user);
         header("location:home.php");

@@ -114,6 +114,16 @@ class admin extends user{
     //comment
 
     function showAllAccount() {
+        $qry = "SELECT * FROM users ORDER BY created_at ASC";
+        require_once("congig.php");
+        $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
+        //  var_dump($cn);
+        $rslt = mysqli_query($cn, $qry);
+        //  var_dump($rslt);
+        $data = mysqli_fetch_all($rslt);
+      
+        mysqli_close($cn);
+        return $data;
         
     }
     function deleteAccount() {
