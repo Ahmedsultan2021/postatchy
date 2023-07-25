@@ -214,6 +214,7 @@ require_once("navbar.php");
             <input type="submit" class="btn btn-primary" value="submit">
           </form>
 
+<<<<<<< HEAD
         </div>
       </div>
     </section>
@@ -241,6 +242,32 @@ require_once("navbar.php");
                     <small class="text-body-secondary"><?= $post[2] ?></small>
                     <small class="text-body-secondary"><?= $post[4] ?></small>
                   </div>
+=======
+      foreach ($posts as $post) {
+       ?>
+       
+        <div class="col-8 offset-2">
+          <div class="card shadow-sm">
+            <img src="<?= $post[0] ?>" width="800px" height="400" >
+            <div class="card-body">
+              <p class="card-text"><?= $post[1] ?></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <?php
+                  if($user->id == $post[2]){
+                    ?>
+                    <a href="manageDelete.php?id=<?=$post[3]?> " class="btn btn-danger" >delete</a>
+
+                    <?php
+                  }
+                  ?>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <!-- <form action="manageDelete.php?id=<?=$post[3]?> " method = "GET">    
+                    <input type="submit" class="btn btn-primary" value="Delete">
+                  </form> -->
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button> -->
+>>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
                 </div>
               </div>
             </div>

@@ -97,12 +97,25 @@ class user
     function updatePost()
     {
     }
+<<<<<<< HEAD
     function deletePost()
     {
     }
     function show_my_Posts($id)
     {
 
+=======
+    function deletePost($post_id) {
+        $qry = "DELETE FROM posts WHERE id = $post_id" ;
+        require_once("congig.php");
+        $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
+        $rslt = mysqli_query($cn, $qry);
+        mysqli_close($cn);
+    }
+
+    function show_my_Posts($id) {
+        
+>>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
         $qry = "SELECT * FROM posts LIMIT 10 ORDER BY created_at DESC where id = $id ";
         require_once("congig.php");
         $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
@@ -120,8 +133,23 @@ class admin extends user
     public $role = 'admin';
     //comment
 
+<<<<<<< HEAD
     function showAllAccount()
     {
+=======
+    function showAllAccount() {
+        $qry = "SELECT * FROM users ORDER BY created_at ASC";
+        require_once("congig.php");
+        $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
+        //  var_dump($cn);
+        $rslt = mysqli_query($cn, $qry);
+        //  var_dump($rslt);
+        $data = mysqli_fetch_all($rslt);
+      
+        mysqli_close($cn);
+        return $data;
+        
+>>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
     }
     function deleteAccount()
     {
