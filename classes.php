@@ -9,7 +9,7 @@ class user{
     protected $password;
     public $role = 'user';
 
-
+    //comment 
     public function __construct($id,$name,$email,$password,$created_at,$updated_at) {
         $this->id = $id;
         $this->name = $name;
