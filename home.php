@@ -220,8 +220,20 @@ require_once("navbar.php");
               <p class="card-text"><?= $post[1] ?></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <?php
+                  if($user->id == $post[2]){
+                    ?>
+                    <a href="manageDelete.php?id=<?=$post[3]?> " class="btn btn-danger" >delete</a>
+
+                    <?php
+                  }
+                  ?>
                   <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <!-- <form action="manageDelete.php?id=<?=$post[3]?> " method = "GET">    
+                    <input type="submit" class="btn btn-primary" value="Delete">
+                  </form> -->
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button> -->
                 </div>
                 <small class="text-body-secondary"><?= $post[4] ?></small>
               </div>
