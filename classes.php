@@ -90,9 +90,14 @@ class user{
     function updatePost() {
         
     }
-    function deletePost() {
-      
+    function deletePost($post_id) {
+        $qry = "DELETE FROM posts WHERE id = $post_id" ;
+        require_once("congig.php");
+        $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
+        $rslt = mysqli_query($cn, $qry);
+        mysqli_close($cn);
     }
+
     function show_my_Posts($id) {
         
         $qry = "SELECT * FROM posts LIMIT 10 ORDER BY created_at DESC where id = $id ";
