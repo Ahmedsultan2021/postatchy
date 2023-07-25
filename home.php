@@ -3,7 +3,6 @@ session_start();
 require_once("classes.php");
 $user = unserialize($_SESSION["user"]);
 $posts = $user->show_all_Post();
-//var_dump($posts );
 require_once("navbar.php");
 ?>
 
@@ -214,82 +213,44 @@ require_once("navbar.php");
             <input type="submit" class="btn btn-primary" value="submit">
           </form>
 
-<<<<<<< HEAD
-        </div>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-body-tertiary">
-      <div class="container">
-
-        <div class="row">
-
           <?php
 
           foreach ($posts as $post) {
+ 
           ?>
-
-            <div class="col-8 offset-2">
+            <div class="col-8 offset-2 my-5">
               <div class="card shadow-sm">
-                <img src="<?= $post[1] ?>" width="800px" height="400px">
+                <img src="<?= $post[1] ?>" style="width: 100%;" >
                 <div class="card-body">
                   <p class="card-text"><?= $post[0] ?></p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                    <small class="text-body-secondary"><?= $post[2] ?></small>
-                    <small class="text-body-secondary"><?= $post[4] ?></small>
-                  </div>
-=======
-      foreach ($posts as $post) {
-       ?>
-       
-        <div class="col-8 offset-2">
-          <div class="card shadow-sm">
-            <img src="<?= $post[0] ?>" width="800px" height="400" >
-            <div class="card-body">
-              <p class="card-text"><?= $post[1] ?></p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <?php
-                  if($user->id == $post[2]){
-                    ?>
-                    <a href="manageDelete.php?id=<?=$post[3]?> " class="btn btn-danger" >delete</a>
+                      <?php
+                      if ($user->id == $post[5]) {
+                      ?>
+                        <a href="manageDelete.php?id=<?= $post[4] ?> " class="btn btn-danger">delete</a>
 
-                    <?php
-                  }
-                  ?>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <!-- <form action="manageDelete.php?id=<?=$post[3]?> " method = "GET">    
-                    <input type="submit" class="btn btn-primary" value="Delete">
-                  </form> -->
-                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button> -->
->>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
+                      <?php
+                      }
+                      ?>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                    </div>
+                    <div class="d-flex justify-content-center" > 
+                      <p> <?= $post[4] ?>  ---</p>
+                      <p> <?= $post[2] ?></p>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             </div>
+              <?php
+            }
 
-          <?php
-          }
-
-          ?>
-
-
-
-
-
-
-
-
-
-
-
+              ?>
         </div>
-      </div>
-    </div>
 
   </main>
 

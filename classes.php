@@ -80,13 +80,12 @@ class user
     function show_all_Post()
     {
 
-        $qry = "SELECT content,image,posts.created_at,posts.id,name FROM posts join users on(posts.user_id = users.id) ORDER BY created_at DESC LIMIT 10 ";
+        $qry = "SELECT content,image,posts.created_at,posts.id,name,user_id FROM posts join users on(posts.user_id = users.id) ORDER BY created_at DESC LIMIT 10 ";
         require_once("congig.php");
         $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
         //  var_dump($cn);
         //$result=mysql_query($qry)oldie(mysql_error());
         $rslt = mysqli_query($cn, $qry);
-        var_dump($rslt);
         $data = mysqli_fetch_all($rslt);
 
         mysqli_close($cn);
@@ -97,14 +96,6 @@ class user
     function updatePost()
     {
     }
-<<<<<<< HEAD
-    function deletePost()
-    {
-    }
-    function show_my_Posts($id)
-    {
-
-=======
     function deletePost($post_id) {
         $qry = "DELETE FROM posts WHERE id = $post_id" ;
         require_once("congig.php");
@@ -115,7 +106,6 @@ class user
 
     function show_my_Posts($id) {
         
->>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
         $qry = "SELECT * FROM posts LIMIT 10 ORDER BY created_at DESC where id = $id ";
         require_once("congig.php");
         $cn = mysqli_connect(DB_HOST, DB_USER_NAME, DB_USER_PASSWORD, DB_NAME);
@@ -133,10 +123,6 @@ class admin extends user
     public $role = 'admin';
     //comment
 
-<<<<<<< HEAD
-    function showAllAccount()
-    {
-=======
     function showAllAccount() {
         $qry = "SELECT * FROM users ORDER BY created_at ASC";
         require_once("congig.php");
@@ -149,7 +135,6 @@ class admin extends user
         mysqli_close($cn);
         return $data;
         
->>>>>>> 9a8a5a3c51f3326f45e6ab5fc9a632ff16da36dd
     }
     function deleteAccount()
     {

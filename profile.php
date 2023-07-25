@@ -13,7 +13,7 @@ require_once("navbar.php")
 if ($user->role == "user") {
         ?>
 <center>
-        <h1>welcome   <?= $user["name"] ?>   </h1>
+        <h1>welcome   <?= $user->name ?>   </h1>
 </center>
 <?php
 }
