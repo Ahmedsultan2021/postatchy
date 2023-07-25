@@ -362,6 +362,7 @@ else {
               <th scope="col">Created At</th>
               <th scope="col">Updated At</th>
               <th scope="col">Role</th>
+              <th scope="col">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -377,6 +378,7 @@ else {
                       <td><?= $user[4] ?></td>
                       <td><?= $user[5] ?></td>
                       <td><?= $user[6] ?></td>
+                      <td><input action="" type="button" value="Delete"></td>
                     </tr>
                     
                     <?php
